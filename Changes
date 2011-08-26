@@ -1,4 +1,8 @@
-Revision history for ElasticSearch
+Revision history for ElasticSearch-Transport-Curl
+0.02    2011-08-26
+
+        Fixed some dependencies
+
 0.01    2011-08-26
 
         First release
