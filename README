@@ -1,0 +1,47 @@
+NAME
+    ElasticSearch::Transport::Curl - A libcurl based HTTP backend for
+    ElasticSearch
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+        use ElasticSearch;
+        my $e = ElasticSearch->new(
+            servers     => 'search.foo.com:9200',
+            transport   => 'curl',
+            timeout     => '10',
+        );
+
+DESCRIPTION
+    ElasticSearch::Transport::Curl uses WWW::Curl and thus libcurl
+    <http://curl.haxx.se/libcurl/> to talk to ElasticSearch over HTTP.
+
+    This is by far the fastest HTTP backend - 60% faster than the next
+    fastest ElasticSearch::Transport::HTTPTiny, but does require a C
+    compiler.
+
+SEE ALSO
+    *   ElasticSearch
+
+    *   ElasticSearch::Transport
+
+    *   ElasticSearch::Transport::HTTPLite
+
+    *   ElasticSearch::Transport::HTTPTiny
+
+    *   ElasticSearch::Transport::Curl
+
+    *   ElasticSearch::Transport::AEHTTP
+
+    *   ElasticSearch::Transport::Thrift
+
+AUTHOR
+    Clinton Gormley <drtech@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Clinton Gormley.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
