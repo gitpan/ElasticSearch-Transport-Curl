@@ -4,10 +4,10 @@ use strict;
 use warnings FATAL => 'all';
 use WWW::Curl::Easy;
 use Encode qw(decode_utf8 encode_utf8);
-use ElasticSearch 0.41;
+use ElasticSearch 0.44;
 use parent 'ElasticSearch::Transport';
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 #===================================
 sub protocol     {'http'}
@@ -43,6 +43,8 @@ sub send_request {
         if $method eq 'HEAD';
 
     $client->setopt( CURLOPT_HTTPHEADER, ['Expect:'] );
+    $client->setopt( CURLOPT_ENCODING, 'deflate' )
+        if $self->deflate;
 
     my $content;
     $client->setopt( CURLOPT_WRITEDATA, \$content );
@@ -117,7 +119,7 @@ ElasticSearch::Transport::Curl - A libcurl based HTTP backend for ElasticSearch
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -152,6 +154,8 @@ L<ElasticSearch::Transport::HTTPTiny>, but does require a C compiler.
 =item * L<ElasticSearch::Transport::Curl>
 
 =item * L<ElasticSearch::Transport::AEHTTP>
+
+=item * L<ElasticSearch::Transport::AECurl>
 
 =item * L<ElasticSearch::Transport::Thrift>
 

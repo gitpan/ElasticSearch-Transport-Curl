@@ -1,4 +1,7 @@
 Revision history for ElasticSearch-Transport-Curl
+0.03    2011-08-27
+        Added support for deflate()
+
 0.02    2011-08-26
 
         Fixed some dependencies

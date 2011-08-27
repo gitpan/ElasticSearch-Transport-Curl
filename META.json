@@ -21,12 +21,12 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.3601"
          }
       },
       "runtime" : {
          "requires" : {
-            "ElasticSearch" : "0.41",
+            "ElasticSearch" : "0.44",
             "ElasticSearch::Transport" : 0,
             "Encode" : 0,
             "WWW::Curl::Easy" : 0,
@@ -53,6 +53,6 @@
          "web" : "https://github.com/clintongormley/ElasticSearch-Curl"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }
 

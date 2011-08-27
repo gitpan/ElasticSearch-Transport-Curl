@@ -11,20 +11,20 @@ my %module_build_args = (
     "Test::More" => 0
   },
   "configure_requires" => {
-    "Module::Build" => "0.38"
+    "Module::Build" => "0.3601"
   },
   "dist_abstract" => "A libcurl based HTTP backend for ElasticSearch",
   "dist_author" => [
     "Clinton Gormley <drtech\@cpan.org>"
   ],
   "dist_name" => "ElasticSearch-Transport-Curl",
-  "dist_version" => "0.02",
+  "dist_version" => "0.03",
   "license" => "perl",
   "module_name" => "ElasticSearch::Transport::Curl",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
-    "ElasticSearch" => "0.41",
+    "ElasticSearch" => "0.44",
     "ElasticSearch::Transport" => 0,
     "Encode" => 0,
     "WWW::Curl::Easy" => 0,
