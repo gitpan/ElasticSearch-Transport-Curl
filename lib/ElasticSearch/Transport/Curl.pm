@@ -4,10 +4,10 @@ use strict;
 use warnings FATAL => 'all';
 use WWW::Curl::Easy;
 use Encode qw(decode_utf8 encode_utf8);
-use ElasticSearch 0.44;
+use ElasticSearch 0.48;
 use parent 'ElasticSearch::Transport';
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 #===================================
 sub protocol     {'http'}
@@ -64,17 +64,18 @@ sub send_request {
         $code = $retcode;
     }
 
-    my $type
-        = $code eq '409' ? 'Conflict'
-        : $code eq '404' ? 'Missing'
-        : $code eq '28'  ? 'Timeout'
+    my $type = $self->code_to_error($code)
+        || (
+        $code eq '28'
+        ? 'Timeout'
         : $code  eq '7'     # can't connect
         || $code eq '55'    # can't write
         || $code eq '56'    # can't read
         || $code eq '18'    # partial file
         || $code eq '25'    # upload failed
         ? 'Connection'
-        : 'Request';
+        : 'Request'
+        );
 
     my $error_params = {
         server      => $server,
@@ -119,7 +120,7 @@ ElasticSearch::Transport::Curl - A libcurl based HTTP backend for ElasticSearch
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -167,7 +168,7 @@ Clinton Gormley <drtech@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Clinton Gormley.
+This software is copyright (c) 2012 by Clinton Gormley.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
