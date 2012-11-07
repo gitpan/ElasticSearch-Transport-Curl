@@ -4,10 +4,10 @@ use strict;
 use warnings FATAL => 'all';
 use WWW::Curl::Easy;
 use Encode qw(decode_utf8 encode_utf8);
-use ElasticSearch 0.48;
+use ElasticSearch 0.60;
 use parent 'ElasticSearch::Transport';
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 #===================================
 sub protocol     {'http'}
@@ -30,10 +30,11 @@ sub send_request {
     my $data = $params->{data};
     $data = ''
         if !defined $data
-            and $method eq 'POST' || $method eq 'PUT';
+        and $method eq 'POST' || $method eq 'PUT';
 
     if ( defined $data ) {
         $data = encode_utf8($data);
+        $self->check_content_length( \$data );
         $client->setopt( CURLOPT_POSTFIELDS,    $data );
         $client->setopt( CURLOPT_POSTFIELDSIZE, length $data );
     }
@@ -120,7 +121,7 @@ ElasticSearch::Transport::Curl - A libcurl based HTTP backend for ElasticSearch
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 

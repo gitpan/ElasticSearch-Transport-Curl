@@ -1,5 +1,10 @@
 Revision history for ElasticSearch-Transport-Curl
 
+0.05    2012-11-07
+        Added a max_content_length attribute to ElasticSearch::Transport
+        to avoid posting too large a body to elasticsearch. The value
+        is auto-detected in versions 0.19.12 onwards
+
 0.04    2012-02-17
         Use ElasticSearch::Transport::code_to_error to centralise HTTP error
         code mapping.
