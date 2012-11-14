@@ -7,7 +7,7 @@ use Encode qw(decode_utf8 encode_utf8);
 use ElasticSearch 0.60;
 use parent 'ElasticSearch::Transport';
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 #===================================
 sub protocol     {'http'}
@@ -121,7 +121,7 @@ ElasticSearch::Transport::Curl - A libcurl based HTTP backend for ElasticSearch
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 SYNOPSIS
 

@@ -1,5 +1,8 @@
 Revision history for ElasticSearch-Transport-Curl
 
+0.07    2012-11-14
+        Previous change still didn't work. Copying tests from ES to this repo
+
 0.06    2012-11-14
         Previous .tar.gz package was corrupt
 
