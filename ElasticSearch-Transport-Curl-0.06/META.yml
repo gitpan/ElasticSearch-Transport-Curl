@@ -28,4 +28,4 @@ resources:
   bugtracker: https://github.com/clintongormley/ElasticSearch-Curl/issues
   homepage: https://metacpan.org/module/ElasticSearch
   repository: git://github.com/clintongormley/ElasticSearch-Curl.git
-version: 0.05
+version: 0.06
