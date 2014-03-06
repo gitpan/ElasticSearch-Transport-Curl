@@ -7,7 +7,7 @@ use Encode qw(decode_utf8 encode_utf8);
 use ElasticSearch 0.60;
 use parent 'ElasticSearch::Transport';
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 #===================================
 sub protocol     {'http'}
@@ -98,7 +98,7 @@ sub client {
         my $client = WWW::Curl::Easy->new;
         $client->setopt( CURLOPT_TIMEOUT, $self->timeout );
         $client->setopt( CURLOPT_HEADER,  0 );
-        $client->setopt( CURLOPT_VERBOSE, 0 );
+        $client->setopt( CURLOPT_VERBOSE, 1 );
         $self->{_client} = { $$ => $client };
 
     }
@@ -107,21 +107,24 @@ sub client {
     return $client;
 }
 
-# ABSTRACT: A libcurl based HTTP backend for ElasticSearch
+# ABSTRACT: DEPRECATED: A libcurl based HTTP backend for ElasticSearch
 
 
 1;
 
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
-ElasticSearch::Transport::Curl - A libcurl based HTTP backend for ElasticSearch
+ElasticSearch::Transport::Curl - DEPRECATED: A libcurl based HTTP backend for ElasticSearch
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -133,6 +136,19 @@ version 0.07
     );
 
 =head1 DESCRIPTION
+
+THIS MODULE IS DEPRECATED.
+
+******************************************************************************
+
+Because of the name clash between ElasticSearch.pm and Elasticsearch.pm the
+official Perl client is now called: Search::Elasticsearch.
+
+See https://github.com/elasticsearch/elasticsearch-perl/issues/20 for details.
+
+This distribution will be removed from CPAN in 2015. Please update your code.
+
+******************************************************************************
 
 ElasticSearch::Transport::Curl uses L<WWW::Curl> and thus
 L<libcurl|http://curl.haxx.se/libcurl/> to talk to ElasticSearch
@@ -169,10 +185,9 @@ Clinton Gormley <drtech@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Clinton Gormley.
+This software is copyright (c) 2014 by Clinton Gormley.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

@@ -1,5 +1,10 @@
 Revision history for ElasticSearch-Transport-Curl
 
+0.08    2013-03-06
+
+        Deprecated the Elasticsearch namespace in favour of Search::Elasticsearch.
+        See https://github.com/elasticsearch/elasticsearch-perl/issues/20
+
 0.07    2012-11-14
         Previous change still didn't work. Copying tests from ES to this repo
 
